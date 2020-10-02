@@ -23,7 +23,7 @@ Access the application on [http://localhost:3000](http://localhost:3000) to view
 2. Create NodeJs Express Application in directory `server` <br />
 
 3. Change package.json in React app to 
-`
+```
 "scripts": {
   "start-client": "react-scripts start",
   "build": "react-scripts build && (cd server && yarn install)",
@@ -31,7 +31,7 @@ Access the application on [http://localhost:3000](http://localhost:3000) to view
   "eject": "react-scripts eject",
   "start": "cd server && yarn start"
 }
-` <br />
+``` <br />
 
 4. Add in server/server.js
 `
@@ -42,12 +42,12 @@ app.use(express.static(buildPath));
 5. run `yarn build`
 
 6. Deploy to Heroku
-`
+```
 git add .
 git commit -s -m "first commit"
 heroku create <app-name>
 git push heroku master
-` <br />
+``` <br />
 
 
 
