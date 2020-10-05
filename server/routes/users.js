@@ -30,7 +30,7 @@ router.post('/signup', async (req, res) => {
     user.password = await bcrypt.hash(user.password, salt);
     await user.save();
 
-    res.send(_.pick(user, [
+    res.status(201).send(_.pick(user, [
         '_id',
         'name',
         'email'
@@ -53,7 +53,7 @@ router.post('/signin', async (req, res) => {
 
     A cookie with the HttpOnly attribute is inaccessible to the JavaScript Document.cookie
     API; it is sent only to the server. This precaution helps mitigate cross-site scripting 
-    (XSS) attacks.
+    (XSS) attacks. This prevents client-side access to that cookie.
     */
     res.cookie("jwt", token, {
         // secure: true,

@@ -30,7 +30,7 @@ UserSchema.methods.generateAuthToken = function() {
         expiresIn: process.env.JWT_TOKEN_LIFE
     });
     return token;
-}
+};
 
 const User = mongoose.model('user', UserSchema);
 
