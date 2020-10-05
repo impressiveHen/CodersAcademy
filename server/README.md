@@ -24,6 +24,6 @@ npm install
 ```
 
 ## Test
-`export NODE_ENV=test`
-`npm test`
+`export NODE_ENV=test` <br />
+`npm test` <br />
 
