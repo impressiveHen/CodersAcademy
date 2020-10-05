@@ -23,3 +23,7 @@ git clone git@github.com:impressiveHen/Coders-Academy.git
 npm install
 ```
 
+## Test
+`export NODE_ENV=test`
+`npm test`
+
