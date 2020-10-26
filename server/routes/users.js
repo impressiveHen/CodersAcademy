@@ -5,11 +5,17 @@ const _ = require('lodash');
 
 const { User, validate } = require('../models/user');
 const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const Joi = require('joi');
 
 router.get('/current', auth, async (req, res) => {
     const user = await User.findById(req.user._id).select("-password");
     res.send(user);
+});
+
+router.get('/admin', auth, admin, async (req, res) => {
+    const adminUser = await User.findById(req.user._id).select("-passward");
+    res.send(adminUser);
 });
 
 router.post('/signup', async (req, res) => {
@@ -22,7 +28,8 @@ router.post('/signup', async (req, res) => {
     user = new User(_.pick(req.body, [
         'name',
         'password',
-        'email'
+        'email',
+        'isAdmin'
     ]));
 
 
