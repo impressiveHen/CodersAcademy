@@ -70,6 +70,11 @@ router.post('/signin', async (req, res) => {
     res.send();
 });
 
+router.get('/signout', async (req, res) => {
+    res.clearCookie('jwt');
+    res.redirect('/');
+});
+
 function validateSignIn(body) {
     const schema = Joi.object({
         email: Joi.string().min(5).max(255).required().email(),
